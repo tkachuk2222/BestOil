@@ -1,0 +1,9 @@
+c:\users\dell\documents\visual studio 2015\Projects\BestOil\BestOil\bin\Debug\BestOil.exe.config
+C:\Users\DELL\documents\visual studio 2015\Projects\BestOil\BestOil\bin\Debug\BestOil.exe
+C:\Users\DELL\documents\visual studio 2015\Projects\BestOil\BestOil\bin\Debug\BestOil.pdb
+C:\Users\DELL\documents\visual studio 2015\Projects\BestOil\BestOil\obj\Debug\BestOil.Form1.resources
+C:\Users\DELL\documents\visual studio 2015\Projects\BestOil\BestOil\obj\Debug\BestOil.Properties.Resources.resources
+C:\Users\DELL\documents\visual studio 2015\Projects\BestOil\BestOil\obj\Debug\BestOil.csproj.GenerateResource.Cache
+C:\Users\DELL\documents\visual studio 2015\Projects\BestOil\BestOil\obj\Debug\BestOil.exe
+C:\Users\DELL\documents\visual studio 2015\Projects\BestOil\BestOil\obj\Debug\BestOil.pdb
+C:\Users\DELL\documents\visual studio 2015\Projects\BestOil\BestOil\obj\Debug\BestOil.csprojResolveAssemblyReference.cache
