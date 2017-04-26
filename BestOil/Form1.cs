@@ -19,10 +19,11 @@ namespace BestOil
         private double TotalPriceOfHamburgers { set; get; }
         private double TotalPriceOfFri { set; get; }
         private double TotalPriceOfCola { set; get; }
-
+        private int Sec { set; get; }
 
         public Form1()
         {
+            Sec = 0;
             InitializeComponent();
             string[] oil = { "A-80", "A-92", "A-95", "A-98", "A-100" };
             this.comboBox1.DataSource = oil;
@@ -215,6 +216,30 @@ namespace BestOil
             double priceEat = double.Parse(this.label10.Text);
             this.label12.Text = $"{priceEat + PriceOfOil}";
             this.label12.Font = new Font(this.label12.Font.Name, 20, this.label12.Font.Style);
+            this.timer1.Start();
+            Sec = 0;
         }
+
+     
+        private void timer1_Tick(object sender, EventArgs e)
+        {
+            Sec++;
+            if(Sec==10)
+                if(MessageBox.Show("Are you sure?", "Clean", MessageBoxButtons.OKCancel, MessageBoxIcon.Question) == DialogResult.OK)
+                {
+                    this.textBox1.Clear();
+                    this.textBox2.Clear();
+                    this.textBox3.Clear();
+                    this.textBox8.Clear();
+                    this.textBox9.Clear();
+                    this.textBox10.Clear();
+                    this.textBox11.Clear();
+                    this.label10.Text = "0";
+                    this.label6.Text = "0";
+                    this.label12.Text = "0";
+                }
+        }
+
+  
     }
 }
