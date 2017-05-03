@@ -16,3 +16,4 @@ C:\Users\DELL\Google Диск\шаг\development\C# .Net\windows forms\BestOil\B
 C:\Users\DELL\Google Диск\шаг\development\C# .Net\windows forms\BestOil\BestOil\obj\Debug\BestOil.Form1.resources
 C:\Users\DELL\Google Диск\шаг\development\C# .Net\windows forms\BestOil\BestOil\obj\Debug\BestOil.Properties.Resources.resources
 C:\Users\DELL\Google Диск\шаг\development\C# .Net\windows forms\BestOil\BestOil\obj\Debug\BestOil.csproj.GenerateResource.Cache
+C:\Users\DELL\Google Диск\шаг\development\C# .Net\windows forms\BestOil\BestOil\obj\Debug\BestOil.ChangeColor.resources

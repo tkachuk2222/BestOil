@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Threading;
 
 namespace BestOil
 {
@@ -20,6 +21,7 @@ namespace BestOil
         private double TotalPriceOfFri { set; get; }
         private double TotalPriceOfCola { set; get; }
         private int Sec { set; get; }
+        private int State { set; get; }
 
         public Form1()
         {
@@ -93,6 +95,7 @@ namespace BestOil
                 TextBox tb1 = this.textBox1;
                 if (tb.Text != "")
                 {
+                    
                     LitersOfOil = double.Parse(tb.Text);
                     PriceOfOil = double.Parse(tb1.Text);
                     TotalPriceOfOil = LitersOfOil * PriceOfOil;
@@ -216,30 +219,177 @@ namespace BestOil
             double priceEat = double.Parse(this.label10.Text);
             this.label12.Text = $"{priceEat + PriceOfOil}";
             this.label12.Font = new Font(this.label12.Font.Name, 20, this.label12.Font.Style);
-            this.timer1.Start();
-            Sec = 0;
+            //Sec = 0;
         }
 
      
         private void timer1_Tick(object sender, EventArgs e)
         {
-            Sec++;
-            if(Sec==10)
-                if(MessageBox.Show("Are you sure?", "Clean", MessageBoxButtons.OKCancel, MessageBoxIcon.Question) == DialogResult.OK)
-                {
-                    this.textBox1.Clear();
-                    this.textBox2.Clear();
-                    this.textBox3.Clear();
-                    this.textBox8.Clear();
-                    this.textBox9.Clear();
-                    this.textBox10.Clear();
-                    this.textBox11.Clear();
-                    this.label10.Text = "0";
-                    this.label6.Text = "0";
-                    this.label12.Text = "0";
-                }
+            this.toolStripStatusLabel1.Text = DateTime.Now.ToString();
+            //Sec++;
+            //if(Sec==10)
+            //    if(MessageBox.Show("Are you sure?", "Clean", MessageBoxButtons.OKCancel, MessageBoxIcon.Question) == DialogResult.OK)
+            //    {
+            //        this.textBox1.Clear();
+            //        this.textBox2.Clear();
+            //        this.textBox3.Clear();
+            //        this.textBox8.Clear();
+            //        this.textBox9.Clear();
+            //        this.textBox10.Clear();
+            //        this.textBox11.Clear();
+            //        this.label10.Text = "0";
+            //        this.label6.Text = "0";
+            //        this.label12.Text = "0";
+            //    }
         }
 
-  
+        private void checkBox1_CheckedChanged(object sender, EventArgs e)
+        {
+            if (this.checkBox1.Checked == true)
+                this.textBox8.Enabled = true;
+            else
+            {
+                this.textBox8.Enabled = false;
+                this.textBox8.Text = $"{0}";
+            }
+        }
+
+        private void Form1_Load(object sender, EventArgs e)
+        {
+            State = (int)WindowState;
+            this.timer1.Start();
+
+            this.notifyIcon1.Icon = new Icon("..//..//Arrioch-Halloween-Devil.ico");
+
+            this.textBox8.Enabled = false;
+            this.textBox9.Enabled = false;
+            this.textBox10.Enabled = false;
+            this.textBox11.Enabled = false;
+        }
+
+        private void checkBox2_CheckedChanged(object sender, EventArgs e)
+        {
+            if (this.checkBox2.Checked == true)
+                this.textBox9.Enabled = true;
+            else
+            {
+                this.textBox9.Enabled = false;
+                this.textBox9.Text = $"{0}";
+            }
+        }
+
+        private void checkBox3_CheckedChanged(object sender, EventArgs e)
+        {
+            if (this.checkBox3.Checked == true)
+                this.textBox10.Enabled = true;
+            else
+            {
+                this.textBox10.Enabled = false;
+                this.textBox10.Text = $"{0}";
+            }
+        }
+
+        private void checkBox4_CheckedChanged(object sender, EventArgs e)
+        {
+            if (this.checkBox4.Checked == true)
+                this.textBox11.Enabled = true;
+            else
+            {
+                this.textBox11.Enabled = false;
+                this.textBox11.Text = $"{0}";
+            }
+        }
+
+        private void textBox2_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if ((e.KeyChar <= 47 || e.KeyChar >= 58) && e.KeyChar != 8)
+                e.Handled = true;
+        }
+
+        private void textBox8_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if ((e.KeyChar <= 47 || e.KeyChar >= 58) && e.KeyChar != 8)
+                e.Handled = true;
+        }
+
+        private void textBox9_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if ((e.KeyChar <= 47 || e.KeyChar >= 58) && e.KeyChar != 8)
+                e.Handled = true;
+        }
+
+        private void textBox10_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if ((e.KeyChar <= 47 || e.KeyChar >= 58) && e.KeyChar != 8)
+                e.Handled = true;
+        }
+
+        private void textBox11_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if ((e.KeyChar <= 47 || e.KeyChar >= 58) && e.KeyChar != 8)
+                e.Handled = true;
+        }
+
+        private void colorsToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if(this.colorDialog1.ShowDialog() == DialogResult.OK)
+            {
+                this.BackColor = colorDialog1.Color;
+            }
+        }
+
+        private void changeFontToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if(this.fontDialog1.ShowDialog() == DialogResult.OK)
+            {
+                this.Font = this.fontDialog1.Font;
+            }
+           
+        }
+
+        private void notifyIcon1_MouseClick(object sender, MouseEventArgs e)
+        {
+            if (WindowState == FormWindowState.Normal || WindowState == FormWindowState.Maximized)
+            {
+                State = (int)WindowState;
+                WindowState = FormWindowState.Minimized;
+            }
+            else if (WindowState == FormWindowState.Minimized)
+            {
+                WindowState = (FormWindowState)State;
+            }
+        }
+
+        private void українськаToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Thread.CurrentThread.CurrentCulture = new System.Globalization.CultureInfo("ukr-UA");
+            Thread.CurrentThread.CurrentUICulture = new System.Globalization.CultureInfo("urk-UA");
+
+            System.ComponentModel.ComponentResourceManager resources =
+                new System.ComponentModel.ComponentResourceManager(this.GetType());
+            resources.ApplyResources(this, "$this");
+            foreach (Control c in this.Controls)
+                resources.ApplyResources(c, c.Name);
+        }
+
+        private void englishToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Thread.CurrentThread.CurrentCulture = new System.Globalization.CultureInfo("en-US");
+            Thread.CurrentThread.CurrentUICulture = new System.Globalization.CultureInfo("en-US");
+
+            System.ComponentModel.ComponentResourceManager resources =
+                new System.ComponentModel.ComponentResourceManager(this.GetType());
+            resources.ApplyResources(this, "$this");
+            foreach (Control c in this.Controls)
+                resources.ApplyResources(c, c.Name);
+        }
+
+        private void changeBgColorVol2ToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            ChangeColor color = new ChangeColor();
+            color.Owner = this;
+            color.Show();
+
+        }
     }
 }
